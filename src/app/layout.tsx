@@ -1,8 +1,6 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 import './globals.css';
-import { Inter } from 'next/font/google';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: `TypeScript starter for Next.js`,
@@ -16,7 +14,36 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body>
+        <nav className="nav-wrapper">
+          <Link className="logo" href="/">
+            Amr Shawki
+          </Link>
+          <ul className="navbar">
+            <li>
+              <Link className="navItem" href="/aboutme">
+                About Me
+              </Link>
+            </li>
+            <li>
+              <Link className="navItem" href="/portfolio">
+                Portfolio
+              </Link>
+            </li>
+            <li>
+              <Link className="navItem" href="/blog">
+                Blog
+              </Link>
+            </li>
+            <li>
+              <Link className="navItem" href="/contactme">
+                Contact Me
+              </Link>
+            </li>
+          </ul>
+        </nav>
+        {children}
+      </body>
     </html>
   );
 }
